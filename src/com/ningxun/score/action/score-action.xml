@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="score" extends="struts-default" namespace="/score">
+		<!-- 编辑分数  -->
+		<action name="scoreAdd" class="com.ningxun.score.action.ScoreAction" method="scoreAdd">
+			<result name="success">raceScoreAdd.jsp</result>
+		</action>
+		<!-- 保存分数  -->
+		<action name="scoreSave" class="com.ningxun.score.action.ScoreAction" method="scoreSave">
+			<result name="success" type="redirectAction">
+				<param name="actionName">scoreAdd</param>
+				<param name="id">${raceId}</param>
+				<param name="teamId">${teamId}</param>
+			</result>
+		</action>
+	</package>
+</struts>

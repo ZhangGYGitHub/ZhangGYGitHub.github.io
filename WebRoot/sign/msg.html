@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>摇一摇签到</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="description"
+			content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+		">
+		<link rel="stylesheet" href="../common/css/weui.min.css">
+		<link rel="stylesheet" href="../common/css/jquery-weui.css">
+		<link rel="stylesheet" href="../common/css/demos.css">
+		<script src="../common/js/jquery-2.1.4.js"></script>
+		<script src="../common/js/fastclick.js"></script>
+		<script src="../common/js/jquery-weui.js"></script>
+	
+	</head>
+	
+	<body ontouchstart>
+	
+		<div class="weui-msg">
+			<div class="weui-msg__icon-area">
+				<i class="weui-icon-success weui-icon_msg"></i>
+			</div>
+			<div class="weui-msg__text-area">
+				<h2 class="weui-msg__title">操作成功</h2>
+				<p class="weui-msg__desc">签到是否成功请以系统内信息为准</p>
+			</div>
+	
+		</div>
+		
+		<script>
+		  $(function() {
+		    FastClick.attach(document.body);
+		  });
+		</script>
+		<script type="text/javascript"src="http://zb.weixin.qq.com/nearbycgi/addcontact/BeaconAddContactJsBridge.js">
+		</script>
+<script type="text/javascript">
+       BeaconAddContactJsBridge.ready(function(){
+              //判断是否关注
+              BeaconAddContactJsBridge.invoke('checkAddContactStatus',{ type:0} ,function(apiResult){
+                     if(apiResult.err_code == 0){
+                            var status = apiResult.data;
+                            if(status == 1){
+                                   $.ajax({
+									url:'sign/ajaxSign.action?sid='+id,
+									type:'post',  
+								    success: function (data) {
+								    	//alert(data);
+								    	
+								    }
+								});
+                            }else{
+                                   //alert('未关注');
+                                   //跳转到关注页
+                                   BeaconAddContactJsBridge.invoke('jumpAddContact',{ type:0});
+                            }
+                     }else{
+                            alert(apiResult.err_msg)
+                     }
+              });
+ 
+       });
+</script>
+	</body>
+</html>

@@ -1,0 +1,322 @@
+@charset "utf-8";
+
+/* 你自己的样式 */
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.pagination {
+	margin-top: 15px;
+	float: right;
+}
+
+.pagination a {
+	border: 1px solid #ccc;
+	cursor: pointer;
+	display: inline-block;
+	margin-left: 2px;
+	text-align: center;
+	text-decoration: none;
+	color: #666;
+	height: 26px;
+	line-height: 26px;
+	text-decoration: none;
+	margin: 0 0 6px 6px;
+	padding: 0 10px;
+	font-size: 14px;
+}
+
+.pagination a:hover {
+	background: #dddddd;
+}
+
+.pagination font {
+	clear: both;
+	line-height: 26px;
+	padding-top: 10px;
+	font-size: 14px;
+	color: #666;
+}
+
+.pagination input {
+	border: 1px solid #ccc;
+	cursor: pointer;
+	display: inline-block;
+	margin-left: 2px;
+	text-align: center;
+	text-decoration: none;
+	color: #666;
+	height: 26px;
+	line-height: 26px;
+	text-decoration: none;
+	margin: 0 0 6px 6px;
+	padding: 0 10px;
+	font-size: 14px;
+	width: 40px;
+}
+
+.current {
+	background: #5a98de;
+	color: #fff;
+}
+
+.paging_simple_numbers {
+	margin-top: 15px;
+}
+
+.formControls a {
+	margin-right: 15px;
+}
+
+.text-c .input-text {
+	width: 180px;
+}
+
+.text-c .Wdate {
+	width: 110px;
+}
+
+.text-c select {
+	width: auto;
+	font-size: 14px;
+	height: 31px;
+	padding: 4px;
+	border: solid 1px #ddd;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+a i {
+	margin-right: 3px;
+}
+
+.row {
+	padding-top: 15px;
+	position: relative;
+	min-height: 30px;
+	display: table;
+	width:100%;
+}
+
+.row>label {
+	width: 200px;
+	text-align: right;
+	padding-left: 15px;
+	padding-right: 15px;
+	display: table-cell;
+	vertical-align: top;
+	*float: left;
+}
+
+.row>label font {
+	color: red;
+}
+
+.row>label.kong {
+	min-height: 1px;
+}
+
+.row>span {
+	display: table-cell;
+	  word-break: break-all;
+    word-wrap: break-word;
+	*display: inline;
+	*float: left
+}
+
+
+.row:nth-child(6){
+	max-width: 585px;
+  
+}
+.row:nth-child(5){
+	max-width: 585px;
+  
+}
+.row:nth-child(4){
+	max-width: 585px;
+  
+}
+.row:nth-child(3){
+	max-width: 585px;
+  
+}
+.row:nth-child(2){
+	max-width: 585px;
+  
+}
+.row:nth-child(1){
+	max-width: 585px;
+  
+}
+.row>span input[type="text"] {
+	border: solid 1px #ddd;
+	width: 340px;
+	height: 27px;
+	padding: 4px;
+}
+
+.row>span input[type="file"] {
+	border: solid 1px #ddd;
+	width: 340px;
+	padding: 4px;
+}
+
+.row>span select {
+	border: solid 1px #ddd;
+	width: 340px;
+	height: 27px;
+}
+
+.row>span>textarea {
+	padding: 4px;
+}
+
+.row>span>#attr {
+	width: 95%;
+}
+
+.row>span>#attr>div {
+	display: flex;
+	padding: 10px 0px;
+}
+
+.row>span>#attr>div>p {
+	width: 100px;
+	padding: 0px 10px;
+	text-align: right;
+}
+
+.row>span>#attr>div>input {
+	flex-grow: 1;
+}
+
+.row>span input[type="radio"] {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.row>span input[type="text"]:focus {
+	border: solid 1px #0f9ae0;
+	border-color: rgba(82, 168, 236, 0.8);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6)
+}
+
+.row>span input[type="text"]:hover {
+	border: solid 1px #0f9ae0;
+}
+
+.row>span>#levelAdd>select {
+	width: 30%;
+}
+
+.row span button {
+	cursor: pointer;
+	border: solid 1px #ddd;
+	background-color: #fff;
+	padding: 5px 13px;
+	border-radius: 4px;
+}
+
+.row span button.submit {
+	color: white;
+	background-color: #5a98de;
+}
+
+tbody tr:first-child {
+	background: #f5fafe;
+}
+
+.row span button:hover {
+	color: white;
+	background: #0163d2;
+}
+
+td>p {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0;
+}
+
+.header b {
+	font-size: 28px;
+	color: white;
+	line-height: 60px;
+	margin-left: 4rem;
+	word-spacing: 8px;
+	letter-spacing: 3px;
+	text-shadow: white 1px 1px 5px;
+}
+
+.footer {
+	line-height: 20px;
+}
+
+.STYLEcheck {
+	color: red;
+}
+
+.page-container {
+	position: relative;
+}
+
+.pic {
+	position: absolute;
+	left: 600px;
+	top: 40px;
+	z-index:88;
+}
+
+.pic img {
+	width: 150px;
+	height: 180px;
+}
+
+.pic.course img {
+	width: 220px;
+	height: 300px;
+}
+
+.pic.plan img {
+	width: 260px;
+	height: 150px;
+}
+
+.pic>div {
+	display: inline-block;
+}
+
+.pic p {
+	text-align: center;
+}
+
+.loginBox .row {
+	padding-top: 0;
+	display: inline-flex;
+}
+
+.width>button {
+	margin: 0 auto;
+	display: block;
+	width: 300px;
+	color: white;
+	padding: 5px 13px;
+	background-color: #5a98de;
+	border-radius: 4px;
+}
+
+.width>button:hover {
+	color: white;
+	background: #0163d2;
+}

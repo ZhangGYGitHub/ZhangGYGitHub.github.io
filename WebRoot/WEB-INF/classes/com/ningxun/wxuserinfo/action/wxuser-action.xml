@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="wxuser" extends="json-default" namespace="/wxuser">
+		
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="auth">/errors/auth.jsp</result>
+			<result name="uploaderror">/errors/uploaderror.jsp</result>
+		</global-results>
+		
+		<!-- 用户注册和用户编辑信息 -->
+		<action name="userSave" class="com.ningxun.wxuserinfo.action.WXUserAction" method="userSave">
+			<!-- 注册页面跳转 -->
+			<result name="nxback">../toSecurity.jsp</result>
+			<!-- <result name="home">/index2.jsp</result> -->
+			<!-- 用户编辑信息跳转页面 -->
+			<result name="my" type="redirectAction">
+				<param name="actionName">userDetail</param>
+			</result>
+		</action>
+		<!-- 跳转注册 -->
+		<action name="toRegist" class="com.ningxun.wxuserinfo.action.WXUserAction" method="toRegist">
+			<result name="success">regist.jsp</result>
+		</action>
+		<!-- 跳转用户编辑页面 -->
+		<action name="userAdd" class="com.ningxun.wxuserinfo.action.WXUserAction" method="userAdd">
+			<result name="success">personedit.jsp</result>
+		</action>
+		<!-- 查看用户信息 -->
+		<action name="userDetail" class="com.ningxun.wxuserinfo.action.WXUserAction" method="userDetail">
+			<result name="success">my.jsp</result>
+		</action>
+		<!-- ajax异步点赞 -->
+		<action name="dianzan" class="com.ningxun.wxuserinfo.action.WXUserAction" method="dianzan">
+			<result name="success" type="json">
+				<param name="contentType">text/plain</param>
+			</result>
+		</action>
+		<!-- 查看个人卡片 -->
+		<action name="showMyCard" class="com.ningxun.wxuserinfo.action.MyCardAction" method="showMyCard">
+			<result name="success">myCard.jsp</result>
+		</action>
+		<!-- 显示首页 -->
+		<action name="showIndex" class="com.ningxun.wxuserinfo.action.WXUserAction" method="showIndex">
+			<result name="success">/wxuser/regist.jsp</result>
+		</action>
+	</package>
+</struts>

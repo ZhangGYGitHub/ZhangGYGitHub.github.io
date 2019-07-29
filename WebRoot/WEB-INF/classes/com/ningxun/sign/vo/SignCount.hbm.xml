@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+        'http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd'>
+<hibernate-mapping>
+    <class name="com.ningxun.sign.vo.SignCount" table="signcount">
+        <id name="id">
+            <generator class="native" />
+        </id>
+        <property name="uid" column="uid"/>
+        <property name="tid" column="tid"/>
+        <property name="signFirst" column="signFirst"/>
+        <property name="signSecond" column="signSecond"/>
+        <property name="signThird" column="signThird"/>
+        <property name="signFourth" column="signFourth"/>
+        <property name="doverate" column="doverate"/>
+    </class>
+</hibernate-mapping>

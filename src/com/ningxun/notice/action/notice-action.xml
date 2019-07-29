@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="notice" extends="struts-default" namespace="/notice">
+	
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="auth">/errors/auth.jsp</result>
+			<result name="uploaderror">/errors/uploaderror.jsp</result>
+			<result name="input">/errors/tipinfo.jsp</result>
+		</global-results>
+		
+		<!-- 展示所有通知列表 -->
+		<action name="findNoticeList" class="com.ningxun.notice.action.NoticeAction" method="findNoticeList">
+			<result name="success">noticeAllList.jsp</result>
+		</action>
+		<!-- 展示球队通知列表 -->
+		<action name="findTeamNList" class="com.ningxun.notice.action.NoticeAction" method="findTeamNList">
+			<result name="success">noticeList.jsp</result>
+		</action>
+		<!-- 添加通知 -->
+		<action name="addNotice" class="com.ningxun.notice.action.NoticeAction" method="addNotice">
+			<result name="success">
+				<param name="location">noticeEdit.jsp</param>
+  				<param name="tid">${tid}</param> 
+			</result>
+		</action>
+		<!-- 查看通知详情 -->
+		<action name="showNoticeDetail" class="com.ningxun.notice.action.NoticeAction" method="showNoticeDetail">
+			<result name="success">noticeDetail.jsp</result>
+			<result name="input">noticeError.html</result>
+		</action>
+		<!-- 编辑通知 -->
+		<action name="editNotice" class="com.ningxun.notice.action.NoticeAction" method="editNotice">
+			<result name="success">noticeEdit.jsp</result>
+		</action>
+		<!-- 保存通知 -->
+		<action name="saveNotice" class="com.ningxun.notice.action.NoticeAction" method="saveNotice">
+			<result name="input">noticeEdit.jsp</result>
+		</action>
+		<!-- ajax上传图片 -->
+		<action name="ajaxFile" class="com.ningxun.notice.action.NoticeAction" method="ajaxFile">
+		</action>
+		<!-- ajax删除通知 -->
+		<action name="deleteNotice" class="com.ningxun.notice.action.NoticeAction" method="deleteNotice">
+		</action>
+		<!-- ajax发布通知 -->
+		<action name="sendNotice" class="com.ningxun.notice.action.NoticeAction" method="sendNotice">
+		</action>
+		<!-- ajax查询队伍信息 -->
+		<action name="teamAjax" class="com.ningxun.notice.action.NoticeAction" method="teamAjax">
+		</action>
+		<!-- 加载更多 -->
+		<action name="ajaxLoadMoreNoticeList" class="com.ningxun.notice.action.NoticeAction" method="ajaxLoadMoreNoticeList">
+		</action>
+		<!-- 加载更多 -->
+		<action name="ajaxLoadMoreUNoticeList" class="com.ningxun.notice.action.NoticeAction" method="ajaxLoadMoreUNoticeList">
+		</action>
+	</package>
+</struts>

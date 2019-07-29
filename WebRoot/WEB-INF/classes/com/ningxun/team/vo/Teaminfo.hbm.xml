@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+        'http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd'>
+<hibernate-mapping>
+    <class name="com.ningxun.team.vo.Teaminfo" table="teaminfo">
+        <id name="id">
+            <generator class="native" />
+        </id>
+        <property name="name" column="name"/>
+        <property name="captainId" column="captainId"/>
+        <property name="teamDeclaration" column="teamDeclaration"/>
+        <property name="isOpen" column="isOpen"/>
+        <property name="introduce" column="introduce"/>
+        <property name="province" column="province"/>
+        <property name="city" column="city"/>
+        <property name="clothesColour" column="clothesColour"/>
+        <property name="regulations" column="regulations"/>
+        <property name="iconNewName" column="iconNewName"/>
+        <property name="iconOldName" column="iconOldName"/>
+        <property name="sponsor" column="sponsor"/>
+        <property name="createTime" column="createTime"/>
+        <property name="createUser" column="createUser"/>
+        <property name="modifyTime" column="modifyTime"/>
+        <property name="modifyUser" column="modifyUser"/>
+        <property name="deleteTime" column="deleteTime"/>
+        <property name="deleteUser" column="deleteUser"/>
+        <property name="delState" column="delState"/>
+    </class>
+</hibernate-mapping>

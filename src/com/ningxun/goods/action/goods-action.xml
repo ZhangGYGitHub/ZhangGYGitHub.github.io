@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="goods" extends="struts-default" namespace="/goods">
+	
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="auth">/errors/auth.jsp</result>
+			<result name="uploaderror">/errors/uploaderror.jsp</result>
+			<result name="input">/errors/tipinfo.jsp</result>
+		</global-results>
+		
+		<!-- 展示物资列表 -->
+		<action name="findGList" class="com.ningxun.goods.action.goodsAction" method="findGList">
+			<result name="success">goodsList.jsp</result>
+		</action>
+		<!-- 添加或编辑物资信息 -->
+		<action name="addOrEditGoods" class="com.ningxun.goods.action.goodsAction" method="addOrEditGoods">
+			<result name="success">goodsEdit.jsp</result>
+		</action>
+		<!-- 保存物资 -->
+		<action name="saveGoods" class="com.ningxun.goods.action.goodsAction" method="saveGoods">
+			<result name="input">goodsEdit.jsp</result>
+		</action>
+		<!-- 删除物资 -->
+		<action name="deleteGoods" class="com.ningxun.goods.action.goodsAction" method="deleteGoods">
+			
+		</action>
+	</package>
+</struts>

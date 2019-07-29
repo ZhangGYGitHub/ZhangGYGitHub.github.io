@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SysConfig>
+	<!-- 连接第二个库的hibernate.cfg文件 -->
+	<hibernateCfg2 path="/imsql.cfg.xml" />
+
+	<!-- driverName:该连接使用的驱动 dbUrl:连接字符串，支持连接池方式 userName:连接数据库时使用的用户名，仅在JDBC方式连接时有效 passWord:数据库密码，仅在JDBC方式连接时有效 -->
+	<DataSource driverName="com.mysql.jdbc.Driver" dbUrl="jdbc:mysql://rm-2ze283i3z906e17go.mysql.rds.aliyuncs.com:3306/jjpt" userName="jjpt_root" passWord="Hbsace+Enrun+88817000@Jjpt" />
+
+	<!-- C3p0参数设置,配置与hebernate保持一致就行  -->
+	<C3p0 initialPoolSize="20" minPoolSize="10" maxPoolSize="50" acquireIncrement="20" maxIdleTime="600" maxStatements="5" idleConnectionTestPeriod="60" />
+
+
+	<!-- 系统路径配置 loginLog:登录日志表名及表结构 operateLog:操作日志表名及表结构 -->
+	<SysLog operateLog="insert into operationLog (userName,realName,companyId,operationType,operationContent,operationTime)" loginLog="insert into loginLog (userName,realName,companyId,loginTime,loginIp,loginType)" />
+
+	<!-- 分页-每页显示记录条数 -->
+	<Page size="10" />
+
+	<!-- 分页采用的图片 firstImg:首页图片 backImg:上一页图片 nextImg:下一页图片 lastImg:末页图片 goImg:跳转图片 -->
+	<PageImg firstImg="../App_Themes/Tehemes/Image/pages/first.gif" backImg="../App_Themes/Tehemes/Image/pages/back.gif" nextImg="../App_Themes/Tehemes/Image/pages/next.gif"
+		lastImg="../App_Themes/Tehemes/Image/pages/last.gif" goImg="../App_Themes/Tehemes/Image/pages/go.gif" />
+
+	<!-- 默认登陆密码 -->
+	<Password value="123456" />
+
+	<!-- 默认邮箱 -->
+	<Email value="test@hbace.net" password="Hbaceenye88817001" pop3="pop3.mxhichina.com" smtp="smtp.mxhichina.com" />
+
+	<!-- 默认服务器IP和端口 -->
+	<ServerHost ip="www.hbace.net" port="" />
+
+	<!-- 最大上传单文件大小，单位KB -->
+	<fileSize size="2048" />
+
+	<!-- 文件上传路径，下载路径 -->
+	<fileUp upPath="c:/upload/" downPath="../uploadfiles/" />
+
+	<!-- 文件上传格式,务必写成小写 -->
+	<fileType imgType="jpg,gif,jpeg,png" zipType="zip,rar" />
+
+	<!-- 图片压缩大小设置 -->
+	<ImgCompress max="800" mid="400" min="100" />
+	
+	<!-- 过滤特殊字符 -->
+	<TextFilter regSymbol="[\\x00-\\x2f\\x3a-\\x40\\x5b-\\x60\\x7b-\\xff\\uFF00-\\uFFEF]*" regChinese="[\u4E00-\u9FA5]*"  />
+
+	<!--级数限制 -->
+	<level size="3" />
+
+	<!-- 个推参数设置 -->
+	<geTui appId="t8zgYJocj8630EQZ94FNp" appKey="TAdAwwJqCN9fo3yVb0ijR1" masterSecret="B3bi2YXDms5gXwXZ7JWEE3" />
+
+	<!--mongodb配置 host:服务器地址 port:端口号 dbName:数据库名称 poolSize:连接数量 blockSize: 等待队列长度 -->
+	<MongoDB host="172.17.153.168" port="27017" dbName="jjpt" userName="root" passWord="NingXun68072017" poolSize="1000" blockSize="20" connectTimeout="1000" maxWaitTime="1000" socketTimeout="1000"/>
+
+	<!--redis配置 host:服务器地址 port:端口号 passWord:密码 -->
+	<!-- maxActive:可用连接实例的最大数目，默认值为8；如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)。 -->
+	<!-- maxIdle:控制一个pool最多有多少个状态为idle(空闲的)的jedis实例，默认值也是8。 -->
+	<!-- maxWait:等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException； -->
+	<redis host="r-2ze47e04f334b4a4.redis.rds.aliyuncs.com" port="6379" passWord="Hbaceenrun88817000" maxActive="1024" maxIdle="200" maxWait="10000" timeout="10000" />
+
+	<!--微信支付统一下单接口 -->
+	<!--key:key设置路径：微信商户平台(pay.weixin.qq.com)->账户设置->API安全->密钥设置 -->
+	<!--appid:微信分配的公众账号ID -->
+	<!--fee_type:CNY人民币 此项非必填 可参考https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=4_2 -->
+	<!--mch_id:微信支付分配的商户号 -->
+	<!--request_url:微信支付统一下单请求地址 -->
+	<!--refund_url:申请退款地址 -->
+	<!--notify_url:接收微信支付异步通知回调地址，通知url必须为直接可访问的url，不能携带参数。 -->
+	<!--certPath:证书路径 -->
+	<!--expire:订单失效时间，单位分钟 -->
+	<!--refund_account:仅针对老资金流商户使用REFUND_SOURCE_UNSETTLED_FUNDS——未结算资金退款(默认使用未结算资金退款)SREFUND_SOURCE_RECHARGE_FUNDS——可用余额退款 -->
+	<WechatPay key="6G7Ye6UnO9PgZ5E6Z2UzKi0AiSLPXEa9" appid="wxa4570fbb5e09db1f" appsecret="1dfe9e7c08d2c4a8ce2e412a9e47f673" fee_type="CNY" mch_id="1398413502" 
+		notify_url="http://admin.hbace.net/jjpt/order/wechatFinishPayNotify"
+		certPath="C:/cert/apiclient_cert.p12" expire="20" refund_account="REFUND_SOURCE_RECHARGE_FUNDS" />
+
+	<!-- 阿里云的相关参数 -->
+	<aliyun endpoint="oss-cn-beijing.aliyuncs.com" accessKeyId="LTAIt2pihPkiAKqg" accessKeySecret="1jnIsE3H0XlUB3qC2J7xGohsojCrgy" />
+	
+	
+	<!-- 支付宝参数配置 -->
+	<!-- partner 合作身份者ID，签约账号，以2088开头由16位纯数字组成的字符串，查看地址：https://b.alipay.com/order/pidAndKey.htm -->
+	<!-- seller_id 收款支付宝账号，以2088开头由16位纯数字组成的字符串，一般情况下收款账号就是签约账号 -->
+	<!-- key MD5密钥，安全检验码，由数字和字母组成的32位字符串，查看地址：https://b.alipay.com/order/pidAndKey.htm -->
+	<!-- notify_url 服务器异步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问 -->
+	<!-- return_url 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问 -->
+	<!-- payment_type,service 无需修改 -->
+	<!-- log_path 调试用，创建TXT日志文件夹路径，见AlipayCore.java类中的logResult(String sWord)打印方法。 -->
+	<alipay partner="2088721343686532" seller_id="2088721343686532" key="8r5uxlm0gkctt90rp4ps0tmycbkfs3an" notify_url="http://admin.hbace.net/jjpt/order/alipayFinishPayNotify"
+		return_url="http://www.hbace.net/jjpx/order/blank.html" sign_type="RSA2" service="create_direct_pay_by_user" log_path="C:\\"
+		appid="2017062207541521" mnotify_url="http://admin.hbace.net/jjpt/order/alipayFinishPhonePayNotify" input_charset="utf-8" payment_type="1"
+		mreturn_url="http://m.hbace.net/jjpx/order/mpaysuccess.html" serverUrl = "https://openapi.alipay.com/gateway.do"
+		publicKey="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo9BtNc7M9N/hj92S1XPR8kRTKgX//y9ZMT3IWXfMsMvUSy4dov9SOlp8viP6Xa8F0fRN01qzDl0ml5AcSJmJdMBvoiep2/zOR95XeQMacCN/5gD7Uy7RMj69wowPTLnrZ2OqBiP89pKuXzvm2XnmRbQvvCTgxnl835SYr3wfn6W9q6A9x+iStuKBkf2kJJ9Ltnjyb81JrRdQbjc+i2qX42fnlelpAncQU1GCWM9LxQoUUpkuCdxqQutvEBfuIBp4byWqEh4vSGsMMOyWu4JBnziGun1lEgoyJVrsksO9hXjMAVaO5mgwra7vtZEKV2F+J+9hcsBBs+hHcDVYNgpKSQIDAQAB"
+		privateKey="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCj0G01zsz03+GP3ZLVc9HyRFMqBf//L1kxPchZd8ywy9RLLh2i/1I6Wny+I/pdrwXR9E3TWrMOXSaXkBxImYl0wG+iJ6nb/M5H3ld5AxpwI3/mAPtTLtEyPr3CjA9MuetnY6oGI/z2kq5fO+bZeeZFtC+8JODGeXzflJivfB+fpb2roD3H6JK24oGR/aQkn0u2ePJvzUmtF1BuNz6LapfjZ+eV6WkCdxBTUYJYz0vFChRSmS4J3GpC628QF+4gGnhvJaoSHi9Iawww7Ja7gkGfOIa6fWUSCjIlWuySw72FeMwBVo7maDCtru+1kQpXYX4n72FywEGz6EdwNVg2CkpJAgMBAAECggEARymmJ7fcxYv0ewDwZpXX4HzZ++l7WioBfyitvmASpcMGSFqSOVrdJ8hjZF5Qxx3fU2Pj4ysFmfnRaAoMn2VDl1p5pGHConRiUEpAiatVct2ZFBvdEjfGXSNwX/FkPBqQLuvW0rATljIGWgy1rkgMRr+N9Re4JcBlBOOSqLktK7asS3/9EAQ9Uv6B2HnOhDy70AwDkDX5zgDM5CYtHlyNjtk6DH6Rwz6UGPD91R+Di75bMXfscsKMaGv7xaonWXt57mgzGP7gqbNjsO8qicJ0vzhHj9/lwSGJcCFWkt2hA1Twn/1GJW2wC/x3aaro05T2i6B1XB7QgWn5QuMfotUt2QKBgQDYW1I/IuI0BjBwKvdK6Qjs7aeUxDa80zDjdEHGvsoOLBXtub+bfI0dtGlKFMTQwCvvXgjuh/MArytOJ5i67k6IOPi9yQECCistBSJafilUBvmrqtZMioXpYxmsPt+TE4B3JjE/hpVa/mWQCUA9BObe/wF59E8wpLMSaZz+vEdHwwKBgQDB1Hu9lDv3uLxiFkxnmfksS/m+PdGggfi+QTy5/jYlcY3IPr7CvAYwM6RFFlT2rr53ZRQNapPoHufsz+njlVRsSH/1du/g5YRJqyA4htIG2ND3p3DzJlIIQPZJzah15ZITYvFRStHnfdzGUtxxL8ELmN6lJXS/aSQGyBRu7kWRAwKBgQCFhHXROLnX2SnzTtCljgJQFKmiiSQuizZUZ95fxEX1UQeHWWYBkm+TsU54xTBgkveKFMH2UjeIaJGU/aKnWYFlV6NJm83fcF8MvWph5hGjJVrWserl+WaCjQG+5l4a6aIR5aPmzCtHqE8NAGiAP5Iqc7x5gmeMYVeROVQFcDOc+QKBgFUkdUaNetoSOA4OJXnM1Pt0VDwRA6gx74YDOh2pYTeJbfJsPXdlCILb7Gi8qo3BrMDdkbVi/52TFeWcXu0th2wZXLwChtSPfVCu7vRlpJSFYSWoU6E7UAV4I7e/syQ2t7f0WnSPHS1GyFgFxfeiNnZVrFd24JXEJaMk+HTSDZTpAoGATTCRudRTFPwAFjo1ep2YfukHVkTfUUpw26feEMMAsl1S5E4aP0TBY6tBhC0SdDcOfnqRoBmW4x5uLtQFBWEwlxPYRnRyh9dsbAjtFD4SAKFqXMZ2QLLg0qMMfUo13L5nwu/HtIo4YOsLemAPUCT6xlyQs4jcpJxC+JWNpasMcYY="
+		alipayPublicKey="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmYRbJiHCzP0dj/iAzGl7LKXwVzsuLc1qYuHCk7Vr1Vo2ci/xteWDyYPLFwJnEBujdzs/+EARenN2Rq2oxtWETSAXVmL76o1hhvd5adk+KJ7WoaaKcZfGG5PrJee+W7hjRiFm0bofcjnsoUmw/xN2D/qccw9i3jqOw0kw0DWPAJzs2dowHSnrdK4+fxZKdvbUI00b3bj0w7uHdLvI0yBiW4uAoS9qy90Dr+w8VpD2fEHoPhb9ce/+RMGDgbkgRBHpekOK0pqseKmxMg8QlZIhyxq8mqR5LQXPwMuo0tMimLf9yefLsUCuw+L8VSx8SPoDoViSZ52sD2F6Dqc1a2Kt0wIDAQAB" />
+
+	<!-- 银联参数配置 -->
+	<!-- merId 商户号 -->
+	<!-- frontTransUrl 交易请求地址 -->
+	<!-- refundTransUrl 退款请求地址 -->
+	<!-- frontUrl 前台跳转地址 -->
+	<!-- backUrl 支付后台通知地址 -->
+	<!-- refundBackUrl 支付后台通知地址 -->
+	<!-- frontFailUrl 支付失败地址 -->
+	<!-- signCertPath 签名证书路径 -->
+	<!-- signCertPsw 签名证书密码，测试环境固定000000，生产环境请修改为从cfca下载的正式证书的密码，正式环境证书密码位数需小于等于6位，否则上传到商户服务网站会失败 -->
+	<!-- signCertType 签名证书类型，固定不需要修改 -->
+	<!-- validateCert 验证签名证书目录，只配置到目录即可 -->
+	<!-- encryptCert 敏感信息加密证书路径(商户号开通了商户对敏感信息加密的权限，需要对 卡号accNo，pin和phoneNo，cvn2，expired加密（如果这些上送的话），对敏感信息加密使用) -->
+	<unionpay merId="802130048160546" frontTransUrl="https://gateway.95516.com/gateway/api/frontTransReq.do" refundTransUrl="https://gateway.95516.com/gateway/api/backTransReq.do"
+		query_url="https://gateway.95516.com/gateway/api/backTransReq.do" frontUrl="http://www.hbace.net/jjpx/order/blank.html" 
+		backUrl="http://admin.hbace.net/jjpt/order/unionpayFinishPayNotify" refundBackUrl="http://admin.hbace.net/jjpt/order/unionpayFinishPayNotify"
+		frontFailUrl="http://www.hbace.net/jjpx/order/blank.html" signCertPath="C:/unionCert/jjpx.pfx" signCertPsw="123" signCertType="PKCS12"
+		validateCert="C:/unionCert/" encryptCert="C:/unionCert/acp_prod_enc.cer" />
+</SysConfig>

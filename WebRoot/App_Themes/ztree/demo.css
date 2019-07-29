@@ -1,0 +1,20 @@
+html, body, div, span, applet, object, iframe, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;padding: 0;border: 0;outline: 0;font-weight: inherit;font-style: inherit;font-family: inherit;vertical-align: baseline;}
+div.zTreeDemoBackground {
+	width:300px;text-align:left;
+	position:absolute;
+	left:0px;
+	top:0px;
+	bottom:0px;
+	border-right:1px #cacaca solid;
+	overflow:auto;
+	}
+.edit_iframe_sty {
+	position:absolute;
+	left:250px;
+	top:0px;
+	bottom:0px;
+	right:0px;
+	overflow:hidden;
+	}
+.ztree {margin-top: 10px;border: 0px solid #617775;background: #fff;/*width:220px;height:360px;overflow-y:scroll;overflow-x:auto;*/}

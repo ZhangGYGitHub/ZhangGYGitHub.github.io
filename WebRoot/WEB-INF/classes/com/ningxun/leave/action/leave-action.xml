@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="leave" extends="struts-default" namespace="/leave">
+		<!-- 保存请假-->
+		<action name="saveLeave" class="com.ningxun.leave.action.LeaveAction" method="saveLeave">
+		</action>
+	</package>
+</struts>

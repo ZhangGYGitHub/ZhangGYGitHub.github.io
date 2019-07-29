@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="clothes" extends="struts-default" namespace="/clothes">
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="input">/errors/tipinfo.jsp</result>
+		</global-results>
+		<action name="clothesColourList" class="com.ningxun.clothes.action.ClothesAction" method="clothesColourList">
+			<result name="success">teamClothesColour.jsp</result>
+		</action>
+		<action name="clothesSave" class="com.ningxun.clothes.action.ClothesAction" method="clothesSave">
+		</action>
+		<action name="clothesDelete" class="com.ningxun.clothes.action.ClothesAction" method="clothesDelete">
+		</action>
+		<!-- ajax查询队服颜色 -->
+		<action name="clothesAjax" class="com.ningxun.clothes.action.ClothesAction" method="clothesAjax">
+		</action>
+		
+	</package>
+</struts>

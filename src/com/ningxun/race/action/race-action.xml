@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="race" extends="struts-default" namespace="/race">
+
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="auth">/errors/auth.jsp</result>
+			<result name="uploaderror">/errors/uploaderror.jsp</result>
+			<result name="input">/errors/tipinfo.jsp</result>
+		</global-results>
+		
+		
+		<!--展示比赛列表 -->
+		<action name="showRaceList" class="com.ningxun.race.action.RaceAction" method="showRaceList">
+			<result name="success">raceList.jsp</result>
+		</action>
+		<!--编辑比赛 -->
+		<action name="toEdit" class="com.ningxun.race.action.RaceAction" method="toEdit">
+			<result name="success">raceAdd.jsp</result>
+		</action>
+		<!--比赛详情 -->
+		<action name="showDetails" class="com.ningxun.race.action.RaceAction" method="showDetails">
+			<result name="success">raceDetails.jsp</result>
+		</action>
+		<!--比赛详情(模板消息) -->
+		<action name="showMesDetails" class="com.ningxun.race.action.RaceAction" method="showMesDetails">
+			<result name="success">raceMesDetail.jsp</result>
+		</action>
+		<!--保存比赛 -->
+		<action name="saveRace" class="com.ningxun.race.action.RaceAction" method="saveRace">
+		</action>
+		<!--删除比赛 -->
+		<action name="Delete" class="com.ningxun.race.action.RaceAction" method="Delete">
+			<result name="success" type="redirectAction">
+				<param name="actionName">showRaceList</param>
+				<param name="teamId">${teamId}</param>
+			</result>
+		</action>
+		<!--录入结果 -->
+		<action name="scoreAdd" class="com.ningxun.race.action.RaceAction" method="scoreAdd">
+		</action>
+		<!--报名比赛 -->
+		<action name="signUp" class="com.ningxun.race.action.RaceAction" method="signUp">
+		</action>
+		<!-- ajax查询队伍信息 -->
+		<action name="searchTeam" class="com.ningxun.race.action.RaceAction" method="searchTeam">
+		</action>
+		<!--请假 -->
+		<action name="leave" class="com.ningxun.race.action.RaceAction" method="leave">
+		</action>
+		<!--发布比赛 -->
+		<action name="release" class="com.ningxun.race.action.RaceAction" method="release">
+			<result name="success" type="redirectAction">
+				<param name="actionName">showRaceList</param>
+				<param name="teamId">${teamId}</param>
+			</result>
+		</action>
+		<!-- 上拉加载更多比赛列表 -->
+		<action name="ajaxLoadMoreRaceList" class="com.ningxun.race.action.RaceAction" method="ajaxLoadMoreRaceList">
+		</action>
+		<!--展示参训情况列表 -->
+		<action name="joinOn" class="com.ningxun.race.action.RaceAction" method="joinOn">
+			<result name="success">joinOnList.jsp</result>
+		</action>
+		<!--校验是否超出比赛结束时间 -->
+		<action name="checkTimeOut" class="com.ningxun.race.action.RaceAction" method="checkTimeOut">
+		</action>
+		<!-- ajax查询联赛-->
+		<action name="leagueAjax" class="com.ningxun.race.action.RaceAction" method="leagueAjax">
+		</action>
+	</package>
+</struts>

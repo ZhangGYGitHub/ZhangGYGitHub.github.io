@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+        'http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd'>
+<hibernate-mapping>
+    <class name="com.ningxun.team.vo.Picture" table="picture">
+        <id name="id">
+            <generator class="native" />
+        </id>
+        <property name="tid" column="tid"/>
+        <property name="picNewName" column="picNewName"/>
+        <property name="picOldName" column="picOldName"/>
+        <property name="createTime" column="createTime"/>
+        <property name="createUser" column="createUser"/>
+        <property name="modifyTime" column="modifyTime"/>
+        <property name="modifyUser" column="modifyUser"/>
+        <property name="deleteTime" column="deleteTime"/>
+        <property name="deleteUser" column="deleteUser"/>
+        <property name="delState" column="delState"/>
+    </class>
+</hibernate-mapping>

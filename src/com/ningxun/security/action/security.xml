@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+
+<struts>
+	<package name="file" namespace="/" extends="struts-default">
+		<action name="verifyCode" class="com.ningxun.util.VerifyCodeAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result>
+		</action>
+
+		<!-- 显示平台首页 -->
+		<action name="index" class="com.ningxun.security.action.FirstPageAction" method="firstPage">
+			<result>home.jsp</result>
+		</action>
+		<!-- 显示欢迎页 -->
+		<action name="welcome" class="com.ningxun.security.action.FirstPageAction" method="welcomePage">
+			<result>welcome.html</result>
+		</action>
+	</package>
+</struts>

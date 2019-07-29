@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="user" extends="struts-default" namespace="/user">
+
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="auth">/errors/auth.jsp</result>
+			<result name="uploaderror">/errors/uploaderror.jsp</result>
+		</global-results>
+		
+		
+
+
+		<!-- 按条件查询用户列表 -->
+		<action name="showUserList" class="com.ningxun.base.user.action.UserAction" method="showUserList">
+			<result  name="success">userList.jsp</result>
+		</action>
+		<!-- 调用添加或编辑用户页面 -->
+		<action name="showManageAdd" class="com.ningxun.base.user.action.UserAction" method="showManageAdd">
+			<result  name="success">userEdit.jsp</result>
+		</action>
+		<!-- 保存管理员用户信息 -->
+		<action name="saveManageUser" class="com.ningxun.base.user.action.UserAction" method="saveManageUser">
+			<interceptor-ref name="defaultStack" >  </interceptor-ref>
+			<interceptor-ref name="token" >  </interceptor-ref>
+			<result>../refreshParentPage.html</result>
+			<result name="input">userEdit.jsp</result>
+			<result name="invalid.token">../refreshParentPage.html</result>
+		</action>
+		<!-- 删除管理员用户信息 -->
+		<action name="deleteManageUser" class="com.ningxun.base.user.action.UserAction" method="deleteManageUser">
+			<result type="redirectAction">
+				<param name="actionName">showUserList</param>
+			</result>
+		</action>
+		<!-- 重置用户密码 -->
+		<action name="resetPassword"
+			class="com.ningxun.base.user.action.UserAction" method="resetPassword">
+			<result name="success" type="redirectAction">
+				<param name="actionName">showUserList</param>
+			</result>
+		</action>
+		<!-- 查看用户详情页面 -->
+		<action name="seeUserDetails" class="com.ningxun.base.user.action.UserAction" method="seeUserDetails">
+			<result  name="success">userDetails.jsp</result>
+		</action>
+				
+		
+		
+		
+		<!-- 分配用户角色 -->
+		<action name="allotRoles" class="com.ningxun.base.user.action.UserAction" method="allotRoles">
+			<result name="success">userAssignedRole.jsp</result>
+		</action>
+		<!-- 保存用户角色 -->
+		<action name="saveAllotRoles" class="com.ningxun.base.user.action.UserAction" method="saveAllotRoles">
+		</action>
+		
+
+
+		<!-- 用户修改个人信息 -->
+		<action name="userInformationEdit" class="com.ningxun.base.user.action.UserAction" method="userInformationEdit">
+			<result name="success">personalInfoEdit.jsp</result>
+		</action>
+		<!-- 保存用户个人信息 -->
+		<action name="saveInformation" class="com.ningxun.base.user.action.UserAction" method="saveInformation">
+			<result name="success" type="redirectAction">
+				<param name="actionName">userInformationEdit</param>
+				<param name="id">${id}</param>
+				<param name="saveOk">${saveOk}</param>
+			</result>
+			<result name="input">personalInfoEdit.jsp</result>
+		</action>
+
+		
+		
+		
+		
+		
+		<!-- 修改密码 -->
+		<action name="editPassword" class="com.ningxun.base.user.action.UserAction" method="editPassword">
+			<result>passwordEdit.jsp</result>
+		</action>
+
+		<!-- 保存密码 -->
+		<action name="savePassword" class="com.ningxun.base.user.action.UserAction" method="savePassword">
+			<result>closePageSelf.html</result>
+			<result name="input">passwordEdit.jsp</result>
+		</action>	
+		<!-- ajax校验原始密码 -->
+		<action name="validateOldPassword" class="com.ningxun.base.user.action.UserAction" method="validateOldPassword">
+		</action>
+
+
+
+		
+		<!-- 忘记密码 -->
+		<action name="forgetPassword" class="com.ningxun.base.user.action.UserAction" method="forgetPassword">
+			<result>forgetPasswordEdit.jsp</result>
+		</action>
+
+		<!-- 忘记密码，验证用户信息 -->
+		<action name="confirmUserInfo" class="com.ningxun.base.user.action.UserAction" method="confirmUserInfo">
+			<interceptor-ref name="defaultStack" >  </interceptor-ref>
+			<interceptor-ref name="token" >  </interceptor-ref>
+			<result name="success"  type="redirect">../login.jsp</result>
+			<result name="input">forgetPasswordEdit.jsp</result>
+			<result name="invalid.token"  type="redirect">../login.jsp</result>
+		</action>
+
+		<!-- 修改密码（忘记密码） -->
+		<action name="modifyPassword" class="com.ningxun.base.user.action.UserAction" method="modifyPassword">
+			<result>passwordForgetEdit.jsp</result>
+		</action>
+
+		<!-- 保存密码（忘记密码） -->
+		<action name="saveModifyPassword" class="com.ningxun.base.user.action.UserAction" method="saveModifyPassword">
+			<result name="input">passwordForgetEdit.jsp</result>
+		</action>
+		<!-- 管理员级联 -->
+		<action name="showManagerZoneList" class="com.ningxun.base.user.action.UserAction" method="showManagerZoneList">
+		</action>
+		
+		
+		
+		
+	
+	</package>
+</struts>

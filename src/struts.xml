@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<!-- 将struts2的ui模式设置为simple -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+	<constant name="struts.multipart.maxSize" value="1073741824" />
+
+	<!-- =================基础设置========================================== -->
+	<!-- 安全 -->
+	<include file="com/ningxun/security/action/security.xml"></include>
+	<!-- 用户 -->
+	<include file="com/ningxun/base/user/action/user-action.xml"></include>
+	<!-- 申请 -->
+	<include file="com/ningxun/apply/action/apply-action.xml"></include>
+	<!-- 邀请 -->
+	<!-- <include file="com/ningxun/invite/action/invite-action.xml"></include> -->
+	<!-- 队服颜色 -->
+	<include file="com/ningxun/clothes/action/clothes-action.xml"></include>
+	<!-- 评价 -->
+	<include file="com/ningxun/feedback/action/feedBack-action.xml"></include>
+	<!-- 物资 -->
+	<include file="com/ningxun/goods/action/goods-action.xml"></include>
+	<!-- 请假 -->
+	<include file="com/ningxun/leave/action/leave-action.xml"></include>
+	<!-- 通知 -->
+	<include file="com/ningxun/notice/action/notice-action.xml"></include>
+	<!-- 比赛 -->
+	<include file="com/ningxun/race/action/race-action.xml"></include>
+	<!-- 签到 -->
+	<include file="com/ningxun/sign/action/sign-action.xml"></include>
+	<!-- 球队 -->
+	<include file="com/ningxun/team/action/teaminfo-action.xml"></include>
+	<!-- 训练 -->
+	<include file="com/ningxun/train/action/train-action.xml"></include>
+	<!-- 微信用户 -->
+	<include file="com/ningxun/wxuserinfo/action/wxuser-action.xml"></include>
+	<!-- 生成个人卡片 -->
+	<include file="com/ningxun/card/action/card-action.xml"></include>
+	<!-- 联赛 -->
+	<include file="com/ningxun/league/action/league-action.xml"></include>
+	<!-- 得分 -->
+	<include file="com/ningxun/score/action/score-action.xml"></include>
+	
+	<package name="home" extends="struts-default" namespace="/">
+		<!-- 微信主页 -->
+		<action name="home" class="com.ningxun.home.action.HomeAction" method="home">
+			<result name="success">index.jsp</result>
+		</action>
+		<!-- 未来数据列表 -->
+		<action name="futureDataList" class="com.ningxun.home.action.HomeAction" method="futureDataList">
+			<result name="success">futureList.jsp</result>
+		</action>
+		<!-- 主页加载更多历史数据-->
+		<action name="ajaxLoadMoreHistoryList" class="com.ningxun.home.action.HomeAction" method="ajaxLoadMoreHistoryList">
+		</action>
+		<!-- 主页加载更多未来数据 -->
+		<action name="ajaxLoadMoreFutureList" class="com.ningxun.home.action.HomeAction" method="ajaxLoadMoreFutureList">
+		</action>
+		<!-- 微信用户授权登录  -->
+		<action name="getToken" class="com.ningxun.wxuserinfo.action.WXUserAction" method="getToken">
+			<result name="toregist">/wxuser/regist.jsp</result>
+			<result name="toFollow">toFollow.jsp</result>
+			<result name="nxback">toSecurity.jsp</result>
+		</action>
+	</package>
+	
+</struts>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="team" extends="struts-default" namespace="/team">
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="input">/errors/tipinfo.jsp</result>
+		</global-results>
+		
+		<!-- 我的所有球队 -->
+		<action name="teaminfoListByUid" class="com.ningxun.team.action.TeaminfoAction" method="teaminfoListByUid">
+			<result name="success">teamList.jsp</result>
+		</action>
+		<action name="teaminfoAdd" class="com.ningxun.team.action.TeaminfoAction" method="teaminfoAdd">
+			<result name="success">teamAdd.jsp</result>
+		</action>
+		<action name="teaminfoSave" class="com.ningxun.team.action.TeaminfoAction" method="teaminfoSave">
+		</action>
+		<!-- 解散球队-->
+		<action name="teaminfoDissolve" class="com.ningxun.team.action.TeaminfoAction" method="teaminfoDissolve">
+			<result type="redirectAction">../wxuser/userDetail</result>
+		</action>
+		<!-- 球队详情 -->
+		<action name="teaminfoDetail" class="com.ningxun.team.action.TeaminfoAction" method="teaminfoDetail">
+			<result name="success">teamDetail.jsp</result>
+		</action>
+		<!-- 退出球队 -->
+		<action name="quitTeam" class="com.ningxun.team.action.TeaminfoAction" method="quitTeam">
+			<result type="redirectAction">../wxuser/userDetail</result>
+		</action>
+		<!-- 管理球队 -->
+		<action name="teaminfoManage" class="com.ningxun.team.action.TeaminfoAction" method="teaminfoManage">
+			<result name="success">teamManage.jsp</result>
+		</action>
+		<!-- 移除球队成员 -->
+		<action name="removeMember" class="com.ningxun.team.action.TeaminfoAction" method="removeMember">
+		</action>
+		<!-- 更改球衣号码 -->
+		<action name="changeClothesNum" class="com.ningxun.team.action.TeaminfoAction" method="changeClothesNum">
+		</action>
+		<!-- 更改职位 -->
+		<action name="changePosition" class="com.ningxun.team.action.TeaminfoAction" method="changePosition">
+		</action>
+		<!-- 球队成员 -->
+		<action name="teaminfoMember" class="com.ningxun.team.action.TeaminfoAction" method="teaminfoMember">
+			<result name="success">teamMember.jsp</result>
+		</action>
+		<!-- 异步上传图片 -->
+		<action name="ajaxUploadPic" class="com.ningxun.team.action.TeaminfoAction" method="ajaxUploadPic">
+		</action>
+		<!-- 跳转上传全家福 -->
+		<action name="teamPicture" class="com.ningxun.team.action.TeaminfoAction" method="teamPicture">
+			<result name="success">teamPicture.jsp</result>
+		</action>
+		<!-- 异步上传全家福 -->
+		<action name="uploadPicture" class="com.ningxun.team.action.TeaminfoAction" method="uploadPicture">
+		</action>
+		<!-- 跳转搜索球队 -->
+		<action name="toQueryTeam" class="com.ningxun.team.action.TeaminfoAction" method="toQueryTeam">
+			<result name="success">teamSearch.jsp</result>
+		</action>
+		<!-- 校验球队名称 -->
+		<action name="checkTeamName" class="com.ningxun.team.action.TeaminfoAction" method="checkTeamName">
+		</action>
+		<!-- 更改备注名 -->
+		<action name="changeRemakeName" class="com.ningxun.team.action.TeaminfoAction" method="changeRemakeName">
+		</action>
+		<!-- 更改所踢位置 -->
+		<action name="changePlayerPosition" class="com.ningxun.team.action.TeaminfoAction" method="changePlayerPosition">
+		</action>
+		<!-- 上拉加载更多 -->
+		<action name="ajaxLoadMoreList" class="com.ningxun.team.action.TeaminfoAction" method="ajaxLoadMoreList">
+		</action>
+		<!-- 分享球队 -->
+		<action name="shareUrl" class="com.ningxun.team.action.TeaminfoAction" method="shareUrl">
+			<result name="success">shareApply.jsp</result>
+			<result name="toIndex">../index2.jsp</result>
+			<result name="login">../toLogin.jsp</result>
+		</action>
+		<!-- 确认分享邀请加入 -->
+		<action name="confirmJoin" class="com.ningxun.team.action.TeaminfoAction" method="confirmJoin">
+			<result name="success">../index2.jsp</result>
+		</action>
+	</package>
+</struts>

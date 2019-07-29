@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="sign" extends="struts-default" namespace="/sign">
+	
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="auth">/errors/auth.jsp</result>
+			<result name="uploaderror">/errors/uploaderror.jsp</result>
+			<result name="input">/errors/tipinfo.jsp</result>
+		</global-results>
+		
+		<!-- 展示签到列表 -->
+		<action name="findRTList" class="com.ningxun.sign.action.signAction" method="findRTList">
+			<result name="success">match.jsp</result>
+		</action>
+		<!-- 展示签到列表 -->
+		<action name="findAllList" class="com.ningxun.sign.action.signAction" method="findAllList">
+			<result name="success">allMatch.jsp</result>
+		</action>
+		<!-- ajax下拉加载-->
+		<action name="ajaxLoadMoreTRList" class="com.ningxun.sign.action.signAction" method="ajaxLoadMoreTRList">
+		</action>
+		<!-- ajax异步签到 -->
+		<action name="ajaxSign" class="com.ningxun.sign.action.signAction" method="ajaxSign">
+		</action>
+		<!-- ajax异步签到 -->
+		<action name="ajaxTSign" class="com.ningxun.sign.action.signAction" method="ajaxTSign">
+		</action>
+		<!-- ajax异步更改状态 -->
+		<action name="ajaxChangeType" class="com.ningxun.sign.action.signAction" method="ajaxChangeType">
+		</action>
+		<!-- 展示比赛签到名单 -->
+		<action name="findRSignList" class="com.ningxun.sign.action.signAction" method="findRSignList">
+			<result name="success">nameList.jsp</result>
+			<result name="teamMember">nameMList.jsp</result>
+		</action>
+		<!-- 展示训练签到名单 -->
+		<action name="findTSignList" class="com.ningxun.sign.action.signAction" method="findTSignList">
+			<result name="success">nameList.jsp</result>
+			<result name="teamMember">nameMList.jsp</result>
+		</action>
+		<!-- 展示代假名单 -->
+		<action name="showLeaveList" class="com.ningxun.sign.action.signAction" method="showLeaveList">
+			<result name="success">TLeaveList.jsp</result>
+		</action>
+		<!-- ajax代替请假 -->
+		<action name="ajaxLeave" class="com.ningxun.sign.action.signAction" method="ajaxLeave">
+		</action>
+		<!-- ajax代替报名 -->
+		<action name="ajaxSignUp" class="com.ningxun.sign.action.signAction" method="ajaxSignUp">
+		</action>
+		<!-- 摇一摇签到 -->
+		<action name="shakeSign" class="com.ningxun.sign.action.signAction" method="shakeSign">
+			<result name="success">msg.html</result>
+		</action>
+	</package>
+</struts>

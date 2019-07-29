@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="feedback" extends="json-default" namespace="/feedback">
+		<!-- 评价列表 -->
+		<action name="feedBackList" class="com.ningxun.feedback.action.FeedBackAction" method="feedBackList">
+			<result name="success">feedbackList.jsp</result>
+		</action>
+		<!-- 跳转保存  -->
+		<action name="feedBackAdd" class="com.ningxun.feedback.action.FeedBackAction" method="feedBackAdd">
+			<result name="success">feedback.jsp</result>
+		</action>
+		<!-- 保存评价  -->
+		<action name="feedBackSave" class="com.ningxun.feedback.action.FeedBackAction" method="feedBackSave">
+			<result name="success" type="redirectAction">
+				<param name="actionName">feedBackList</param>
+				<param name="trId">${trId}</param>
+				<param name="type">${type}</param>
+				<param name="tid">${tid}</param>
+			</result>
+		</action>
+		<!-- ajax保存评论 -->
+		<action name="ajaxSaveComment" class="com.ningxun.feedback.action.FeedBackAction" method="ajaxSaveComment">
+		</action>
+		<!-- 上拉加载更多评论列表 -->
+		<action name="ajaxLoadMoreFeedBackList" class="com.ningxun.feedback.action.FeedBackAction" method="ajaxLoadMoreFeedBackList">
+		</action>
+		
+		<!--==================================================联赛评论==================================================  -->
+		<!-- 评价列表 -->
+		<action name="leagueFeedBackList" class="com.ningxun.feedback.action.LeagueFeedBackAction" method="leagueFeedBackList">
+			<result name="success">leagueFeedbackList.jsp</result>
+		</action>
+		<!-- 跳转添加评价-->
+		<action name="leagueFeedBackAdd" class="com.ningxun.feedback.action.LeagueFeedBackAction" method="leagueFeedBackAdd">
+			<result name="success">leagueFeedback.jsp</result>
+		</action>
+		<!-- 保存评价  -->
+		<action name="leagueFeedBackSave" class="com.ningxun.feedback.action.LeagueFeedBackAction" method="leagueFeedBackSave">
+			<result name="success" type="redirectAction">
+				<param name="actionName">leagueFeedBackList</param>
+				<param name="lmid">${lmid}</param>
+			</result>
+		</action>
+		<!-- ajax保存评论 （追评）-->
+		<action name="ajaxSaveContent" class="com.ningxun.feedback.action.LeagueFeedBackAction" method="ajaxSaveContent">
+		</action>
+		<!-- 上拉加载更多评论列表 -->
+		<action name="ajaxLoadMoreLeagueFeedBackList" class="com.ningxun.feedback.action.LeagueFeedBackAction" method="ajaxLoadMoreLeagueFeedBackList">
+		</action>
+	</package>
+</struts>

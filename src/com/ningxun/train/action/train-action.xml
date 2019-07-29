@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="train" extends="struts-default" namespace="/train">
+
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="auth">/errors/auth.jsp</result>
+			<result name="uploaderror">/errors/uploaderror.jsp</result>
+			<result name="input">/errors/tipinfo.jsp</result>
+		</global-results>
+		
+		<!--展示训练列表 -->
+		<action name="showTrainList" class="com.ningxun.train.action.TrainAction" method="showTrainList">
+			<result name="success">trainList.jsp</result>
+		</action>
+		<!--编辑训练 -->
+		<action name="toEdit" class="com.ningxun.train.action.TrainAction" method="toEdit">
+			<result name="success">trainAdd.jsp</result>
+		</action>
+		<!--训练详情 -->
+		<action name="showDetails" class="com.ningxun.train.action.TrainAction" method="showDetails">
+			<result name="success">trainDetails.jsp</result>
+		</action>
+		<!--展示训练列表(模板消息) -->
+		<action name="showMesDetails" class="com.ningxun.train.action.TrainAction" method="showMesDetails">
+			<result name="success">trainMesDetails.jsp</result>
+		</action>
+		<!--保存训练 -->
+		<action name="saveTrain" class="com.ningxun.train.action.TrainAction" method="saveTrain">
+		</action>
+		<!--删除训练 -->
+		<action name="Delete" class="com.ningxun.train.action.TrainAction" method="Delete">
+			<result name="success" type="redirectAction">
+				<param name="actionName">showTrainList</param>
+				<param name="teamId">${teamId}</param>
+			</result>
+		</action>
+		<!--请假 -->
+		<action name="leave" class="com.ningxun.train.action.TrainAction" method="leave">
+		</action>
+		<!--发布比赛 -->
+		<action name="release" class="com.ningxun.train.action.TrainAction" method="release">
+			<result name="success" type="redirectAction">
+				<param name="actionName">showTrainList</param>
+				<param name="teamId">${teamId}</param>
+			</result>
+		</action>
+		<!-- 上拉加载更多训练列表 -->
+		<action name="ajaxLoadMoreTrainList" class="com.ningxun.train.action.TrainAction" method="ajaxLoadMoreTrainList">
+		</action>
+		<!--报名训练 -->
+		<action name="signUp" class="com.ningxun.train.action.TrainAction" method="signUp">
+			<result name="success" type="redirectAction">
+				<param name="actionName">showTrainList</param>
+				<param name="teamId">${teamId}</param>
+			</result>
+		</action>
+		<!--展示参训情况列表 -->
+		<action name="joinOn" class="com.ningxun.train.action.TrainAction" method="joinOn">
+			<result name="success">joinOnList.jsp</result>
+		</action>
+		<!--校验是否超出比赛结束时间 -->
+		<action name="checkTimeOut" class="com.ningxun.race.action.RaceAction" method="checkTimeOut">
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+        'http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd'>
+<hibernate-mapping>
+    <class name="com.ningxun.team.vo.UserTeam" table="user_team">
+        <id name="id">
+            <generator class="native" />
+        </id>
+        <property name="uid" column="uid"/>
+        <property name="tid" column="tid"/>
+        <property name="remakeName" column="remakeName"/>
+        <property name="position" column="position"/>
+        <property name="playerPosition" column="playerPosition"/>
+        <property name="leaveRate" column="leaveRate"/>
+        <property name="signRate" column="signRate"/>
+        <property name="clothesNum" column="clothesNum"/>
+    </class>
+</hibernate-mapping>

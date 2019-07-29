@@ -1,0 +1,124 @@
+	
+	/********************* biliboard通用样式 ***************/
+	.title {
+           background: #1aad19;
+           color: white;
+           z-index: 3;
+       }
+	.fixed {
+         width: 100%;
+         float: left;
+         position: fixed;
+       }
+	.placeholder{
+           height: 3em;
+       }
+ 	.tabbar{
+           z-index: 3;
+       }         
+	.float-clear{
+       	clear:both;
+       }
+	.default-line{
+		background:#ddd;
+		height:1px;
+		width:94%;
+		margin:0 auto;
+	}
+	.default-score{
+		color:red;
+		font-size:15px;
+		margin:0 2px;
+	}
+	.default-text{
+		color:#888;
+		font-size:0.8em;
+	}
+	.default-space{
+		margin-top:-0.4em;
+		line-height:1.5em;
+	}
+	.default-border{
+		border:1px solid #cfcfcf;
+	}
+       /********************赛程展示用*************** */
+	.match-cell{
+		padding:0.5em;
+		margin:5px;
+	}
+	.match-right{
+		float:right;
+		width:60%;
+		margin-top:-1em;
+	}
+	.match-left{
+		float:left;
+		width:30%;
+		height:6em;
+	}
+	.match-img{
+	 	width:70%;
+	 	height:4em;
+	}
+	.match-top_img{
+		margin:0.5em;
+		z-index:5;
+	}
+	.match-bottom_img{
+		position:relative; 
+		top:-3.5em; 
+		left:1.6em;
+	}
+	.match-team_name{
+		font-weight:bold;
+		font-size:1.2em;
+	}
+	.vs{
+		color:gold;
+		font-size:2em;
+		margin:0 0.2em;
+	}
+	/************排行榜**********/
+	.rank-cell{
+		padding:0.2em;
+	}
+	
+	.rank-img{
+		width:30%;
+		margin-top:1em;
+		margin-left:2%;
+		height:3em;
+	}
+	
+	.rank-head{
+		float:right;
+		width:60%;
+		height:5em;
+	}
+	.rank-left{
+		position:relative;
+		margin-top:0.5em;
+		display:inline-block;
+		width:40%;
+	}
+	.rank-right{
+		float:right;
+		width:52%
+	}
+	.rank-name{
+		margin-top:0.3em;
+		font-size:1.2em;
+		font-weight:bold;
+	}
+	.rank-num{
+		display:inline;
+		position:absolute;
+		text-align:center;
+		font-size:2em;
+		width:30%;
+		margin-left:2%;
+		left:;
+		top:0.5em;
+		color:white;
+		text-shadow:2px 2px 2px black;
+	}

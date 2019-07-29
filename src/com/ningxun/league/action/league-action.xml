@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="league" extends="struts-default" namespace="/league">
+
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="auth">/errors/auth.jsp</result>
+			<result name="uploaderror">/errors/uploaderror.jsp</result>
+			<result name="input">/errors/tipinfo.jsp</result>
+		</global-results>
+		
+	    <!--联赛列表 -->
+		<action name="leagueList" class="com.ningxun.league.action.LeagueAction" method="leagueList">
+			<result name="success">leagueList.jsp</result>
+		</action>
+		<!--添加联赛 -->
+		<action name="leagueAdd" class="com.ningxun.league.action.LeagueAction" method="leagueAdd">
+			<result name="success">leagueAdd.jsp</result>
+		</action>
+		<!--保存联赛 -->
+		<action name="leagueSave" class="com.ningxun.league.action.LeagueAction" method="leagueSave">
+		</action>
+		<!-- 编辑联赛 -->
+		<action name="leagueEdit" class="com.ningxun.league.action.LeagueAction" method="leagueEdit">
+			<result name="success">leagueEdit.jsp</result>
+		</action>
+		<!-- 删除联赛 -->
+		<action name="leagueDel" class="com.ningxun.league.action.LeagueAction" method="leagueDel">
+			<result name="success" type="redirectAction">leagueList</result>
+		</action>
+		<!-- 删除裁判 -->
+		<action name="refereeDel" class="com.ningxun.league.action.LeagueAction" method="refereeDel">
+			<result name="success" >leagueEdit.jsp</result>
+		</action>
+		<!-- 联赛榜单  -->
+		<action name="showBillboard" class="com.ningxun.league.action.LeagueAction" method="showBillboard">
+			<result name="success">billboard.jsp</result>
+		</action>
+		<!-- 联赛附件下载  -->
+		<action name="leagueFile" class="com.ningxun.league.action.LeagueAction" method="leagueFile">
+			<result name="success" >leagueFile.jsp</result>
+		</action>
+		<!-- 展示裁判个人信息  -->
+		<action name="showReferee" class="com.ningxun.league.action.LeagueAction" method="showReferee">
+			<result name="success">refereeInfo.jsp</result>
+		</action>
+		<!-- 展示裁判个人信息  -->
+		<action name="showSoccer" class="com.ningxun.league.action.LeagueAction" method="showSoccer">
+			<result name="success">soccerShow.jsp</result>
+		</action>
+		<!-- ajax获取match -->
+		<action name="ajaxGetMatch" class="com.ningxun.league.action.LeagueAction" method="ajaxGetMatch"/>
+		<!-- ajax校验名称 -->
+		<action name="ajaxValideLeagueName" class="com.ningxun.league.action.LeagueAction" method="ajaxValideLeagueName"/>
+		<!-- ajax加载场次 -->
+		<action name="ajaxLoadSite" class="com.ningxun.league.action.LeagueAction" method="ajaxLoadSite"/>
+		<!-- ajax加载队伍-->
+		<action name="ajaxLoadTeam" class="com.ningxun.league.action.LeagueAction" method="ajaxLoadTeam"/>
+		<!-- ajax搜索裁判-->
+		<action name="ajaxFindRefereeList" class="com.ningxun.league.action.LeagueAction" method="ajaxFindRefereeList"/>
+		<!-- ajax保存比赛-->
+		<action name="ajaxSaveMatch" class="com.ningxun.league.action.LeagueAction" method="ajaxSaveMatch"/>
+		<!-- ajax查找队员-->
+		<action name="ajaxFindMemberByTid" class="com.ningxun.league.action.LeagueAction" method="ajaxFindMemberByTid"/>
+		<!--赛情编辑 -->
+		<action name="leagueScore" class="com.ningxun.league.action.LeagueAction" method="leagueScore">
+			<result name="success" >leagueScore.jsp</result>
+		</action>
+		<!--赛情编辑 -->
+		<action name="scoreEdit" class="com.ningxun.league.action.LeagueAction" method="scoreEdit">
+			<result name="success" >scoreEdit.jsp</result>
+		</action>
+		<!-- 提交结果审核-->
+		<action name="subMatchToExam" class="com.ningxun.league.action.LeagueAction" method="subMatchToExam"/>
+		<!-- 拒绝比分申请 -->
+		<action name="refuseExamine" class="com.ningxun.league.action.LeagueAction" method="refuseExamine"/>
+		<!--赛情编辑 -->
+		<action name="scoreExamine" class="com.ningxun.league.action.LeagueAction" method="scoreExamine">
+			<result name="success" >scoreExamine.jsp</result>
+		</action>
+		<action name="shareUrl" class="com.ningxun.league.action.LeagueAction" method="shareUrl">
+			<result name="success">shareApply.jsp</result>
+			<result name="toIndex">../index2.jsp</result>
+			<result name="login">../toLogin.jsp</result>
+		</action>
+	</package>
+</struts>

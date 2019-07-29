@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="personalcard" extends="struts-default" namespace="/personalcard">
+		
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="auth">/errors/auth.jsp</result>
+			<result name="uploaderror">/errors/uploaderror.jsp</result>
+		</global-results>
+		
+		<!-- 跳转个人卡片 -->
+		<action name="cardShow" class="com.ningxun.card.action.PersonalCardAction" method="cardShow">
+			<result name="success">
+				<param name="location">personalCard.jsp</param>
+  				<param name="indexNum">${indexNum}</param>
+			</result>
+		</action>
+		<!-- 生成个人卡片 -->
+		<action name="showPersonalCard" class="com.ningxun.card.action.PersonalCardAction" method="showPersonalCard">
+		</action>
+	</package>
+</struts>

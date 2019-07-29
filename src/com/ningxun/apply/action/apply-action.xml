@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<package name="apply" extends="struts-default" namespace="/apply">
+		<global-results>
+			<result name="error">/errors/errorinfo.jsp</result>
+			<result name="input">/errors/tipinfo.jsp</result>
+		</global-results>
+		<!-- 申请列表 -->
+		<action name="applyList" class="com.ningxun.apply.action.ApplyAction" method="applyList">
+			<result name="success">teamApply.jsp</result>
+		</action>
+		<!-- 联赛申请列表 -->
+		<action name="applyLeagueList" class="com.ningxun.apply.action.ApplyAction" method="applyLeagueList">
+			<result name="success">leagueApply.jsp</result>
+		</action>
+		<!-- 申请球队 -->
+		<action name="applyTeam" class="com.ningxun.apply.action.ApplyAction" method="applyTeam">
+		</action>
+		<!-- 申请加入裁判组 -->
+		<action name="applyReferee" class="com.ningxun.apply.action.ApplyAction" method="applyReferee">
+		</action>
+		<!-- 同意申请 -->
+		<action name="agreeApply" class="com.ningxun.apply.action.ApplyAction" method="agreeApply">
+		</action>
+		<!-- 同意加入裁判组申请-->
+		<action name="agreeLeagueApply" class="com.ningxun.apply.action.ApplyAction" method="agreeLeagueApply">
+		</action>
+		<!-- 拒绝申请 -->
+		<action name="rejectApply" class="com.ningxun.apply.action.ApplyAction" method="rejectApply">
+		</action>
+		<!-- 拒绝加入裁判组申请 -->
+		<action name="rejectLeagueApply" class="com.ningxun.apply.action.ApplyAction" method="rejectLeagueApply">
+		</action>
+		<!-- 忽略申请 -->
+		<action name="ignoreApply" class="com.ningxun.apply.action.ApplyAction" method="ignoreApply">
+		</action>
+		<!-- 忽略加入裁判组申请 -->
+		<action name="ignoreLeagueApply" class="com.ningxun.apply.action.ApplyAction" method="ignoreLeagueApply">
+		</action>
+		<!-- 上拉加载更多已处理列表 -->
+		<action name="ajaxLoadMoreApplyHandleList" class="com.ningxun.apply.action.ApplyAction" method="ajaxLoadMoreApplyHandleList">
+		</action>
+		<!-- 我的申请记录 -->
+		<action name="myApply" class="com.ningxun.apply.action.ApplyAction" method="myApply">
+			<result name="success">myApply.jsp</result>
+		</action>
+	</package>
+</struts>
